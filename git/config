@@ -10,6 +10,7 @@
 	email = nicnilov@gmail.com
 [core]
 	editor = vim
+	excludesfile = ~/.config/git/ignore
 [push]
 	default = simple
 [github]
