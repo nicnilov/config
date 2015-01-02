@@ -1,0 +1,16 @@
+[color]
+	ui = auto
+[alias]
+	s = status
+	ci = commit
+	co = checkout
+	lg = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative
+[user]
+	name = Nic Nilov
+	email = nicnilov@gmail.com
+[core]
+	editor = vim
+[push]
+	default = simple
+[github]
+	user = nicnilov

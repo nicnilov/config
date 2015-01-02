@@ -1,0 +1,33 @@
+# ~/.tmuxinator/import2-site.yml
+
+name: import2-site
+root: ~/projects/import2-site
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - editor:
+      layout: 0bb7,210x54,0,0[210x42,0,0,0,210x11,0,43{105x11,0,43,1,52x11,106,43,2,51x11,159,43,3}]
+      panes:
+        - # 
+        - #
+        - #
+        - zeus start
+  - local: bundle exec rails c
+  - remote: heroku run rails c
+  - test: #
+  - shell: #
+  - log: # 
