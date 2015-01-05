@@ -1,17 +1,23 @@
 set nocompatible              " 
 filetype off                  " required by Vundle
 
+" activates syntax highlighting among other things
+syntax on
+
+set t_Co=256
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle, required
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'benmills/vimux'
+Plugin 'bling/vim-airline'
 
 " ===== ruby-specific =====
-
-Bundle 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
@@ -19,10 +25,19 @@ Plugin 'tpope/vim-fugitive'
 " =========================
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required by Vundle
-filetype plugin indent on    " required by Vundle
+call vundle#end() 
+
+" activates filetype detection
+filetype plugin indent on
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set tags+=gems.tags
+let g:airline_powerline_fonts = 1
+set laststatus=2
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
