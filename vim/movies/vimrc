@@ -1,5 +1,6 @@
 set nocompatible              " 
 filetype off                  " required by Vundle
+set hidden                    " hides buffers instead of closing them
 
 " activates syntax highlighting among other things
 syntax on
@@ -21,6 +22,10 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
+Plugin 'edsono/vim-matchit'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'majutsushi/tagbar'
+Plugin 'Valloric/YouCompleteMe'
 
 " =========================
 
@@ -29,6 +34,7 @@ call vundle#end()
 
 " activates filetype detection
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set tags+=gems.tags
@@ -38,6 +44,8 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+
+nmap <F8> :TagbarToggle<CR>
 
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
