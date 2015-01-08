@@ -1,11 +1,5 @@
 set nocompatible              " 
 filetype off                  " required by Vundle
-set hidden                    " hides buffers instead of closing them
-
-" activates syntax highlighting among other things
-syntax on
-
-set t_Co=256
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -26,28 +20,126 @@ Plugin 'edsono/vim-matchit'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
-
+Plugin 'tpope/vim-commentary'
 " =========================
 
 " All of your Plugins must be added before the following line
 call vundle#end() 
 
-" activates filetype detection
-filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set tags+=gems.tags
+" ========================= Plugin config =======================
+
+" === Airline ===
+set laststatus=2                            " always show the status line
 let g:airline_powerline_fonts = 1
-set laststatus=2
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+
 let g:airline_symbols.space = "\ua0"
+" === Airline ===
 
-nmap <F8> :TagbarToggle<CR>
-
+" === CtrlP ===
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(so\.?\d*)$'
   \ }
+" === CtrlP ===
+
+" === Tagbar  ===
+nmap <F8> :TagbarToggle<CR>
+" === Tagbar ===
+
+" ========================= Plugin config =======================
+
+
+" ========================= General settings =======================
+filetype plugin indent on                   " activates filetype detection
+syntax on                                   " activates syntax highlighting among other things
+set encoding=utf-8                          " use utf-8 for character representation
+set fileencoding=utf-8                      " save files in utf-8
+set omnifunc=syntaxcomplete#Complete        " set omnicomplete function
+set hidden                                  " hides buffers instead of closing them
+set t_Co=256                                " enable 256 color support
+set timeoutlen=250                          " Reduce default timeout after ESC
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip    " Don't show these files in choice
+set tags+=gems.tags                         " Use gems' ctags as well
+set undofile                                " keep undo history between sessions
+
+" Line wrapping
+" set nowrap                                  " Line wrapping off
+set wrap                                    " wrap long lines automatically...
+set textwidth=80                            " ...after 79 characters
+" set colorcolumn=110                         " draw wrap boundary
+set formatoptions=qrn1                      " defines how Vim formats text
+
+" Line numbers
+set number                                  " Line numbers on
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <F7> :call NumberToggle()<cr>
+
+" Command line
+set showcmd                                 " display incomplete commands
+set noshowmode                              " Airline plugin shows mode instead 
+set wildmenu                                " Show completion menu on command line
+set wildmode=list:longest                   " Style of completion menu
+
+" Whitespace
+set tabstop=2                               " visual width of a tab in columns
+set shiftwidth=2                            " indentation step in columns
+set softtabstop=2                           " insert this many columns in Insert mode
+set expandtab                               " use spaces, not tabs
+set backspace=indent,eol,start              " backspace through everything in insert mode
+set scrolloff=3                             " keep this many lines in view when scrolling
+
+" Search
+set hlsearch                                " highlight matches
+set incsearch                               " incremental searching
+set ignorecase                              " searches are case insensitive...
+set smartcase                               " ... unless they contain at least one capital letter
+
+" ========================= General settings =======================
+
+
+" ========================= Key remappings =======================
+
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" switch off arrow keys to learn Vim way
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+
+" make navigation work on screen lines
+nnoremap j gj
+nnoremap k gk
+
+let mapleader = "\<Space>"
+nnoremap <tab> %
+vnoremap <tab> %
+
+" open .vimrc in a vertical split
+nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+" return from insert mode (review)
+inoremap jj <ESC>
+" ========================= Key remappings =======================
