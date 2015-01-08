@@ -5,26 +5,64 @@ filetype off                  " required by Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle, required
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'benmills/vimux'
+Plugin 'bling/vim-airline'
 
 " ===== ruby-specific =====
-
-Bundle 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
-
+Plugin 'edsono/vim-matchit'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'majutsushi/tagbar'
+Plugin 'Valloric/YouCompleteMe'
 " =========================
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required by Vundle
-filetype plugin indent on    " required by Vundle
+call vundle#end() 
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
+" ========================= Plugin config =======================
+
+" === Airline ===
+let g:airline_powerline_fonts = 1
+set laststatus=2
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+" === Airline ===
+
+" === CtrlP ===
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(so\.?\d*)$'
   \ }
+" === CtrlP ===
+
+" ========================= Plugin config =======================
+
+
+" ========================= General settings =======================
+filetype plugin indent on                   " activates filetype detection
+syntax on                                   " activates syntax highlighting among other things
+set omnifunc=syntaxcomplete#Complete        " set omnicomplete function
+set hidden                                  " hides buffers instead of closing them
+set t_Co=256                                " enable 256 color support
+set nu                                      " Line numbers on
+set nowrap                                  " Line wrapping off
+set timeoutlen=250                          " Reduce default timeout after ESC
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip    " Don't show these files in choice
+set tags+=gems.tags                         " Use gems' ctags as well
+" ========================= General settings =======================
+
+
+" ========================= Key mappings =======================
+
+nmap <F8> :TagbarToggle<CR>
+
+" ========================= Key mappings =======================
