@@ -10,17 +10,18 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'benmills/vimux'
 Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-commentary'
+Plugin 'edsono/vim-matchit'
 
 " ===== ruby-specific =====
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
-Plugin 'edsono/vim-matchit'
 Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-commentary'
 " =========================
 
 " All of your Plugins must be added before the following line
@@ -66,17 +67,22 @@ set timeoutlen=250                          " Reduce default timeout after ESC
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip    " Don't show these files in choice
 set tags+=gems.tags                         " Use gems' ctags as well
 set undofile                                " keep undo history between sessions
+set ttyfast                                 " faster scrolling
+
+" Colors
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=0
+" let g:solarized_visibility low
+colorscheme solarized
 
 " Line wrapping
-" set nowrap                                  " Line wrapping off
 set wrap                                    " wrap long lines automatically...
 set textwidth=80                            " ...after 79 characters
-" set colorcolumn=110                         " draw wrap boundary
 set formatoptions=qrn1                      " defines how Vim formats text
 
 " Line numbers
 set number                                  " Line numbers on
-
 function! NumberToggle()
   if(&relativenumber == 1)
     set norelativenumber
@@ -85,7 +91,6 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-
 nnoremap <F7> :call NumberToggle()<cr>
 
 " Command line
@@ -108,6 +113,9 @@ set incsearch                               " incremental searching
 set ignorecase                              " searches are case insensitive...
 set smartcase                               " ... unless they contain at least one capital letter
 
+" Splits
+set splitbelow                              " open new horz split below instead of default above
+set splitright                              " open new vert split right instead of default left
 " ========================= General settings =======================
 
 
