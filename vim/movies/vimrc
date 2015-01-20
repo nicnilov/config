@@ -1,4 +1,4 @@
-set nocompatible              " 
+set nocompatible              "
 filetype off                  " required by Vundle
 
 " set the runtime path to include Vundle and initialize
@@ -9,6 +9,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'benmills/vimux'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'jgdavey/vim-turbux'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
@@ -22,10 +24,12 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'skalnik/vim-vroom'
 " =========================
 
 " All of your Plugins must be added before the following line
-call vundle#end() 
+call vundle#end()
 
 
 " ========================= Plugin config =======================
@@ -52,6 +56,13 @@ let g:ctrlp_custom_ignore = {
 nmap <F8> :TagbarToggle<CR>
 " === Tagbar ===
 
+" === TSlime, Vim-RSpec ===
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
+" === TSlime, Vim-RSpec ===
+
 " ========================= Plugin config =======================
 
 
@@ -68,13 +79,25 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip    " Don't show these files in choice
 set tags+=gems.tags                         " Use gems' ctags as well
 set undofile                                " keep undo history between sessions
 set ttyfast                                 " faster scrolling
+set noswapfile                              " do not create swap files
+set pastetoggle=<F2>                        " switch off autoformatting on paste
 
 " Colors
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=0
+
+" === Solarized ===
+" set background=dark
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans=0
 " let g:solarized_visibility low
-colorscheme solarized
+" colorscheme solarized
+
+" === Gruvbox ===
+" set background=dark
+" let g:gruvbox_termcolors=256
+" let g:gruvbox_italic=0
+" colorscheme gruvbox
+
+colorscheme wombat256mod
 
 " Line wrapping
 set wrap                                    " wrap long lines automatically...
@@ -95,7 +118,7 @@ nnoremap <F7> :call NumberToggle()<cr>
 
 " Command line
 set showcmd                                 " display incomplete commands
-set noshowmode                              " Airline plugin shows mode instead 
+set noshowmode                              " Airline plugin shows mode instead
 set wildmenu                                " Show completion menu on command line
 set wildmode=list:longest                   " Style of completion menu
 
@@ -137,6 +160,9 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
+" Switch off search highlights
+nnoremap <F12> :nohl<cr>
+
 " make navigation work on screen lines
 nnoremap j gj
 nnoremap k gk
@@ -150,4 +176,10 @@ nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " return from insert mode (review)
 inoremap jj <ESC>
+
+" vim-rspec mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 " ========================= Key remappings =======================
