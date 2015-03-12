@@ -1,4 +1,6 @@
 tags
 gems.tags
+.ruby-version
 *.un~
 .env
+.idea/
