@@ -6,14 +6,18 @@
 [[ -z $XDG_CONFIG_HOME ]] && export XDG_CONFIG_HOME="$HOME/.config"
 
 export EDITOR='vim'
-source ~/.bin/tmuxinator.zsh
+source ~/dotfiles/tmuxinator/tmuxinator.zsh
 
 alias ls='ls --color=auto'
 alias -g gp='| grep -i'
 alias -s rb=vim
 alias -s txt=vim
-alias -s log="less -MN"
+alias -s lg="less -MN"
+alias rc='bundle exec rails c'
+alias hrc='heroku run rails c'
+alias rs='bundle exec rails s'
+alias hist='history'
 
 source ~/.profile
 
- eval `dircolors ~/config/terminal/.dircolors`
+eval `dircolors ~/dotfiles/shell/.dircolors`
