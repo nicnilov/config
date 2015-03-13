@@ -4,3 +4,4 @@ gems.tags
 *.un~
 .env
 .idea/
+coverage/

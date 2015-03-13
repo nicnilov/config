@@ -17,6 +17,7 @@ alias rc='bundle exec rails c'
 alias hrc='heroku run rails c'
 alias rs='bundle exec rails s'
 alias hist='history'
+alias ber='bundle exec rspec'
 
 source ~/.profile
 
