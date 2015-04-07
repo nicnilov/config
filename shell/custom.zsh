@@ -6,9 +6,11 @@
 [[ -z $XDG_CONFIG_HOME ]] && export XDG_CONFIG_HOME="$HOME/.config"
 
 export EDITOR='vim'
+setopt nosharehistory
 source ~/dotfiles/tmuxinator/tmuxinator.zsh
 
 alias ls='ls --color=auto'
+alias ll='ls -la -v'
 alias -g gp='| grep -i'
 alias -s rb=vim
 alias -s txt=vim

@@ -5,3 +5,4 @@ gems.tags
 .env
 .idea/
 coverage/
+config/database.yml
