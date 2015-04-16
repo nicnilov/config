@@ -20,10 +20,10 @@ root: ~/projects/afterskoolz
 
 windows:
    - rs:
-     - bundle exec rails s
-   - log:
-     - tail -f ./log/development.log
+     - bundle exec rails s Puma
    - rc:
      - bundle exec rails c
+   - shell:
+     - clear
    - shell:
      - clear
