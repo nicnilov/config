@@ -20,9 +20,9 @@ root: ~/projects/afterskoolz
 
 windows:
    - rs:
-     - bundle exec rails s Puma
+     - rs puma
    - rc:
-     - bundle exec rails c
+     - rc
    - shell:
      - clear
    - shell:
