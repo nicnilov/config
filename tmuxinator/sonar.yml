@@ -1,0 +1,14 @@
+# ~/.tmuxinator/sonar.yml
+
+name: sonar
+root: ~/projects/sonar
+
+windows:
+   - rs:
+     - foreman start
+   - log:
+     - tail -f log/development.log
+   - rc:
+     - rc
+   - shell:
+     - clear
