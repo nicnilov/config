@@ -31,4 +31,8 @@ if current_dir =~ /^(.*?\/mws)$/
   puts "  In \033[32m\033[1mMWS Library\033[0m: added './lib/' to load path"
   puts "  In \033[32m\033[1mMWS Library\033[0m: Mws instance available as \033[32mmws\033[0m"
   puts '================================================================================='
+elsif current_dir =~ /^(.*?\/sonar)$/
+  Pry.config.hooks.add_hook(:before_session, :set_context) do
+    |_, _, pry| pry.input = StringIO.new("cd SalesforceService.new(Company.last)")
+  end
 end
