@@ -3,6 +3,7 @@ gems.tags
 .ruby-version
 *.un~
 .env
+.jsbeautifyrc
 .idea/
 coverage/
 config/database.yml

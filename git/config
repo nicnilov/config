@@ -5,13 +5,20 @@
 	ci = commit
 	co = checkout
 	lg = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative
+	cidate = !git commit -m `date +%Y-%m-%d`
 [user]
 	name = Nic Nilov
 	email = nicnilov@gmail.com
 [core]
 	editor = vim
-	excludesfile = ~/.config/git/ignore
+	excludesfile = ~/dotfiles/git/ignore
+	pager = diff-so-fancy | less --tabs=1,5 -R
 [push]
 	default = simple
 [github]
 	user = nicnilov
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
