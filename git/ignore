@@ -7,3 +7,4 @@ gems.tags
 .idea/
 coverage/
 config/database.yml
+node_modules
