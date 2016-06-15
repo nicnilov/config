@@ -7,27 +7,30 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'benmills/vimux'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-commentary'
+" Plugin 'tpope/vim-commentary'
 Plugin 'edsono/vim-matchit'
 Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
+" Plugin 'scrooloose/nerdcommenter'
 Plugin 'rizzatti/dash.vim'
 Plugin 'scrooloose/nerdTree'
 Plugin 'taglist.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rking/ag.vim'
+Plugin 'Chun-Yang/vim-action-ag'
 " Plugin 'scrooloose/syntastic'
 
 " ===== rails-specific =====
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-fugitive'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'skalnik/vim-vroom'
@@ -35,6 +38,7 @@ Plugin 'tpope/vim-haml'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'lukaszkorecki/CoffeeTags'
 Plugin 'AndrewRadev/vim-eco'
+Plugin 'ngmy/vim-rubocop'
 " =========================
 
 " ===== Elixir  =====
@@ -62,7 +66,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " === CtrlP ===
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]\.(git|hg|svn)$',
+  \ 'dir': '\.git$\|node_modules$\|deps$\|_build$',
   \ 'file': '\v\.(so\.?\d*|log)$'
   \ }
 " === CtrlP ===
@@ -97,6 +101,7 @@ set ttyfast                                 " faster scrolling
 set noswapfile                              " do not create swap files
 set pastetoggle=<F2>                        " switch off autoformatting on paste
 set list listchars=tab:▸\ ,trail:.,precedes:<,extends:> " mark formatting characters eol:¬,
+set nostartofline                           " Keep cursor position on buffer change etc.
 
 " Colors
 
@@ -203,6 +208,12 @@ nnoremap <silent> <F6> :TlistToggle<CR>
 
 " Switch off search highlights
 nnoremap <F12> :nohl<cr>
+
+" Snippets
+imap ;bp binding.pry<esc>
+imap ;db debugger;<esc>
+map <Leader>er i<%  %><esc>hhi
+map <Leader>ere i<%=  %><esc>hhi
 
 " make navigation work on screen lines
 nnoremap j gj

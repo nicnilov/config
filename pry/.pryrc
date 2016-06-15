@@ -35,4 +35,8 @@ elsif current_dir =~ /^(.*?\/sonar)$/
   Pry.config.hooks.add_hook(:before_session, :set_context) do
     |_, _, pry| pry.input = StringIO.new("cd SalesforceService.new(Company.last)")
   end
+elsif current_dir =~ /^(.*?\/afterschoolz)$/
+  Pry.config.hooks.add_hook(:before_session, :set_context) do
+    # |_, _, pry| pry.input = StringIO.new("def current_user ; User.find_by_email('nicnilov@gmail.com'); end")
+  end
 end
