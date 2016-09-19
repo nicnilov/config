@@ -25,6 +25,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rking/ag.vim'
 Plugin 'Chun-Yang/vim-action-ag'
+Plugin 'sjl/vitality.vim'
 " Plugin 'scrooloose/syntastic'
 
 " ===== rails-specific =====
@@ -36,7 +37,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'skalnik/vim-vroom'
 Plugin 'tpope/vim-haml'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'lukaszkorecki/CoffeeTags'
+" Plugin 'lukaszkorecki/CoffeeTags'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'ngmy/vim-rubocop'
 " =========================
@@ -152,7 +153,7 @@ set expandtab                               " use spaces, not tabs
 set backspace=indent,eol,start              " backspace through everything in insert mode
 set scrolloff=3                             " keep this many lines in view when scrolling
 
-autocmd FileType javascript,eruby setlocal shiftwidth=4 tabstop=4 softtabstop=4  " different indentation settings depending on file type
+autocmd FileType javascript,eruby setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab  " different indentation settings depending on file type
 
 " Search
 set hlsearch                                " highlight matches
@@ -166,7 +167,9 @@ set splitright                              " open new vert split right instead 
 
 " Autosave
 au FocusLost * silent! wa                   " Save all buffers on focus lost. Does not apply to new and readonly buffers
+set autowrite                               " Save all buffers on buffer switch
 set autowriteall                            " Save all buffers on buffer switch
+
 
 " Tag list
 let Tlist_GainFocus_On_ToggleOpen=1         " Focus taglist window on toggle open
@@ -189,6 +192,9 @@ nnoremap <c-l> <c-w>l
 " switch buffers faster
 nnoremap <S-Right> :bnext<CR>
 nnoremap <S-Left> :bprevious<CR>
+
+" trying to map Cmd-s to save, doesn't work atm. Requires proper mapping in iTerm.
+nnoremap <c-s> :w<CR>
 
 " switch off arrow keys to learn Vim way
 nnoremap <Up> <nop>
@@ -227,10 +233,9 @@ let mapleader = "\<Space>"
 nnoremap <tab> %
 vnoremap <tab> %
 
-" open .vimrc in a vertical split
-nnoremap <leader>rc :tabnew<CR>:e $MYVIMRC<cr>
+" open .vimrc in a new buffer
+nnoremap <leader>rc :enew<CR>:e $MYVIMRC<cr>
 
-" vim-rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
