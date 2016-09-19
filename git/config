@@ -9,7 +9,7 @@
 [user]
 	name = Nic Nilov
 	email = nicnilov@gmail.com
-	signingkey = E7C9C976
+	signingkey = 14A9B008
 [core]
 	editor = vim
 	excludesfile = ~/dotfiles/git/ignore
