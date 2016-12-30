@@ -15,7 +15,7 @@ Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
 " Plugin 'tpope/vim-commentary'
-Plugin 'edsono/vim-matchit'
+" Plugin 'edsono/vim-matchit'
 Plugin 'tpope/vim-surround'
 " Plugin 'scrooloose/nerdcommenter'
 Plugin 'rizzatti/dash.vim'
@@ -68,7 +68,7 @@ let g:airline#extensions#tabline#enabled = 1
 " === CtrlP ===
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\.git$\|node_modules$\|deps$\|_build$',
-  \ 'file': '\v\.(so\.?\d*|log)$'
+  \ 'file': '\v\.(so\.?\d*|log|png|jpg|gif|ico)$'
   \ }
 " === CtrlP ===
 
@@ -95,9 +95,9 @@ set omnifunc=syntaxcomplete#Complete        " set omnicomplete function
 set hidden                                  " hides buffers instead of closing them
 set t_Co=256                                " enable 256 color support
 set timeoutlen=250                          " Reduce default timeout after ESC
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/coverage/*    " Don't show these files in choice
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/docs/*,*/coverage/*    " Don't show these files in choice
 set tags+=gems.tags                         " Use gems' ctags as well
-set iskeyword+=                             " Don't treat dash as keyword separator
+set iskeyword+=?                            " Don't treat dash as keyword separator
 set ttyfast                                 " faster scrolling
 set noswapfile                              " do not create swap files
 set pastetoggle=<F2>                        " switch off autoformatting on paste
@@ -218,8 +218,8 @@ nnoremap <F12> :nohl<cr>
 " Snippets
 imap ;bp binding.pry<esc>
 imap ;db debugger;<esc>
-map <Leader>er i<%  %><esc>hhi
-map <Leader>ere i<%=  %><esc>hhi
+imap ;er <%  %><esc>hhi
+imap ;ere <%=  %><esc>hhi
 
 " make navigation work on screen lines
 nnoremap j gj
