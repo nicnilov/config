@@ -1,5 +1,8 @@
 tags
 gems.tags
+GPATH
+GRTAGS
+GTAGS
 .ruby-version
 *.un~
 .env
