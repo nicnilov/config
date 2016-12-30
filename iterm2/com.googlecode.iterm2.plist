@@ -785,21 +785,21 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>141 444 606 456 0 0 1440 900 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>697 667 400 129 0 0 1440 900 </string>
+	<string>958 697 400 129 0 0 1440 900 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>370 209 700 622 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>267 186 1016 502 0 0 1440 900 </string>
+	<string>267 108 937 512 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 316 592 584 0 0 1440 900 </string>
 	<key>NSWindow Frame com.apple.typography_panel_SourceCodePro-Semibold</key>
 	<string>479 55 260 518 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>63 28 850 843 0 0 1440 900 </string>
+	<string>1 56 850 843 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2 42 850 843 0 0 1440 900 </string>
+	<string>1 24 717 875 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>145 84 906 673 0 0 1440 900 </string>
+	<string>145 4 850 843 0 0 1440 900 </string>
 	<key>NeverWarnAboutShortLivedSessions_0786BCA9-D864-4BE0-81CC-706852E7321C</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_0786BCA9-D864-4BE0-81CC-706852E7321C_selection</key>
@@ -1442,7 +1442,7 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Space</key>
 			<integer>0</integer>
 			<key>Sync Title</key>
@@ -4169,7 +4169,7 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Space</key>
 			<integer>0</integer>
 			<key>Sync Title</key>
@@ -4311,7 +4311,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-09-04T15:58:52Z</date>
+	<date>2016-10-29T17:56:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -4349,7 +4349,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.7</string>
+	<string>3.0.10</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>2</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
