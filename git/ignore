@@ -10,4 +10,5 @@ GTAGS
 .idea/
 coverage/
 config/database.yml
+build
 node_modules
