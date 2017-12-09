@@ -121,4 +121,10 @@ function lb() {
 EOF
   fi
   nvim $fname
+  cd ~/projects/_writing/ && git add . && git cidate && cd -1
+}
+
+function td() {
+  nvim ~/projects/_writing/todo/todo.md
+  cd ~/projects/_writing/ && git add . && git cidate && cd -1
 }
