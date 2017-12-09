@@ -27,6 +27,7 @@ Plugin 'rking/ag.vim'
 Plugin 'Chun-Yang/vim-action-ag'
 Plugin 'sjl/vitality.vim'
 " Plugin 'scrooloose/syntastic'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " ===== rails-specific =====
 Plugin 'vim-ruby/vim-ruby'
@@ -177,6 +178,14 @@ let Tlist_GainFocus_On_ToggleOpen=1         " Focus taglist window on toggle ope
 " Syntastic config
 " let g:syntastic_javascript_checkers = ["eslint"]     " Javascript only
 " let g:syntastic_javascript_eslint_exec = 'eslint_d'  " Using eslint daemon
+
+" Template for new logbook files
+" au BufNewFile *.logbook.md 0r ~/.vim/logbook.md.template | let IdentStyle = "md"
+
+" Markdown preview settings, see https://github.com/JamshedVesuna/vim-markdown-preview
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_temp_file=1
 
 " ========================= General settings =======================
 
