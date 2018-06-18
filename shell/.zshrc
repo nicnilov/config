@@ -50,7 +50,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails react-native)
+plugins=(git rails elixir react-native)
 
 # User configuration
 
@@ -128,3 +128,6 @@ function td() {
   nvim ~/projects/_writing/todo/todo.md
   cd ~/projects/_writing/ && git add . && git cidate && cd -1
 }
+
+export PATH="$HOME/.yarn/bin:$PATH"
+export ERL_AFLAGS="-kernel shell_history enabled"
