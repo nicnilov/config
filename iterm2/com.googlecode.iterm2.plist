@@ -749,7 +749,7 @@
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/iterm2</string>
+	<string>~/Downloads</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 498}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
@@ -801,13 +801,13 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>370 208 700 622 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>281 199 796 473 0 0 1440 900 </string>
+	<string>752 343 770 429 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 316 592 584 0 0 1440 900 </string>
 	<key>NSWindow Frame com.apple.typography_panel_SourceCodePro-Semibold</key>
 	<string>479 55 260 518 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>453 39 850 843 0 0 1440 900 </string>
+	<string>204 0 850 843 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>541 49 850 843 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1373,7 +1373,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -4419,7 +4419,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-25T08:47:45Z</date>
+	<date>2018-08-08T11:23:10Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -4462,7 +4462,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5</string>
+	<string>3.2.0</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>2</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

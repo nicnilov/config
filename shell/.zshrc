@@ -54,7 +54,7 @@ plugins=(git rails elixir react-native)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -89,6 +89,9 @@ alias ll='ls -la'
 # alias ctags="`brew --prefix`/bin/ctags"
 alias hg="history | grep"
 alias iem="iex -S mix"
+alias exifstrip="exiftool -all="
+alias ic=imgcat
+alias ils=imgls
 
 . ~/dotfiles/shell/z.sh
 export ANDROID_HOME="/Users/alucard/projects/_tools/android-r25.2.3"
@@ -100,6 +103,10 @@ export GTAGSLABEL=pygments
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function mntg() {
+  montage -label '%d\\%f\n%wx%h' $@ -auto-orient -background '#666666' -mattecolor '#DFDFDF' -shadow -geometry 600x600\>+4+4 -tile 4x8 -border 8x8 -frame 5 montage_%d.jpg
+}
 
 function lb() {
   pname="${1:-Other}"
@@ -129,5 +136,68 @@ function td() {
   cd ~/projects/_writing/ && git add . && git cidate && cd -1
 }
 
+function noindex() {
+  mdutil -i off .
+  sudo rm -rf .{,_.}{fseventsd,Spotlight-V*,Trashes,DocumentRevisions-V*}
+  mkdir .fseventsd
+  touch .fseventsd/no_log .metadata_never_index .Trashes
+  echo "Done"
+}
+
+# Retry command https://gist.github.com/nicnilov/e507791d91fbc8e37b129dfdc168494b
+function retry() {
+    SLEEP_TIME="30"
+    MAX_RETRIES="10"
+
+    # Command-line arguments parsing
+    while [[ $# > 1 ]]
+    do
+    key="$1"
+
+    case $key in
+        -s|--sleep)
+        SLEEP_TIME="$2"
+        shift # past argument
+        ;;
+        -m|--max)
+        MAX_RETRIES="$2"
+        shift # past argument
+        ;;
+        *)
+        break # unknown option
+        ;;
+    esac
+    shift # past argument or value
+    done
+
+    # The command is all remaining arguments
+    COMMAND="$@"
+
+    echo $COMMAND
+
+    i=0
+
+    # I'm using eval to allow for pipes. This could become an option
+    eval $COMMAND
+
+    while [ $? -ne 0 -a $i -lt $MAX_RETRIES ]
+    do
+        echo "Command failed - retrying in $SLEEP_TIME..."
+        sleep $SLEEP_TIME
+        i=$(($i+1))
+        eval $COMMAND
+    done
+
+    if [ $i -eq $MAX_RETRIES ]
+    then
+        echo "Max retries reached"
+    fi
+}
+
 export PATH="$HOME/.yarn/bin:$PATH"
 export ERL_AFLAGS="-kernel shell_history enabled"
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
