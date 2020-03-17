@@ -89,6 +89,7 @@ alias ll='ls -la'
 # alias ctags="`brew --prefix`/bin/ctags"
 alias hg="history | grep"
 alias iem="iex -S mix"
+alias mtx="iex -S mix test --trace"
 alias exifstrip="exiftool -all="
 alias ic=imgcat
 alias ils=imgls
